@@ -1,0 +1,112 @@
+﻿<Window x:Class="PLWPF.TestFeedbackWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="Tests Waiting For Feedback: "
+        WindowStartupLocation="CenterScreen"
+        FontSize="16"
+        Height="500" 
+        Width="400">
+    
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ListBox ItemsSource="{Binding}"
+                 x:Name="testsList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Test Number:"
+                                                   FontWeight="Bold"
+                                                   Margin="5,0,5,0"/>
+                            <TextBlock Text="{Binding TestNumber}"
+                                                   Margin="5,0,5,0"/>
+                            <TextBlock Text="Date:"
+                                                   FontWeight="Bold"
+                                                   Margin="5,0,5,0"/>
+                            <TextBlock Text="{Binding TestDate, StringFormat=d}"
+                                                   Margin="5,0,5,0"/>
+                            <TextBlock Text="Time:"
+                                                   FontWeight="Bold"
+                                                   Margin="5,0,5,0"/>
+                            <TextBlock Text="{Binding TestTime}"
+                                                   Margin="5,0,5,0"/>
+                        </StackPanel>
+                        <TextBlock Margin="5,0,5,0"
+                                   Text="{Binding TraineeID, StringFormat='Trainee ID number: {0}'}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Exit Address:"
+                                                   FontWeight="Bold"
+                                                   Margin="5,0,5,0"/>
+                            <TextBlock Text="{Binding ExitAddress}"
+                                                   Margin="5,0,5,0"/>
+                        </StackPanel>
+                        <Expander x:Name="resultsExpender"
+                                  Header="Fill The Test Results:" 
+                                             >
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Did the trainee pass the test?"
+                                               Margin="5,0,5,0"/>
+                                    <ComboBox>
+                                        <ComboBoxItem x:Name="testScoreCombo"
+                                                      Content="Passed"
+                                                      IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                                      IsSelected="{Binding TestScore, Mode=TwoWay}"/>
+                                        <ComboBoxItem Content="Failed"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <CheckBox Content="Distance Keeping"
+                                          IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                          IsChecked="{Binding DistanceKeeping, Mode=TwoWay}"/>
+                                <CheckBox Content="Reverse Parking"
+                                          IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                          IsChecked="{Binding ReverseParking, Mode=TwoWay}"/>
+                                <CheckBox Content="Looking At Mirrors"
+                                          IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                          IsChecked="{Binding LookingAtMirrors, Mode=TwoWay}"/>
+                                <CheckBox Content="Signals Usage"
+                                          IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                          IsChecked="{Binding SignalsUsage, Mode=TwoWay}"/>
+                                <CheckBox Content="Priority Giving"
+                                          IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                          IsChecked="{Binding PriorityGiving, Mode=TwoWay}"/>
+                                <CheckBox Content="Speed Keeping"
+                                          IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                          IsChecked="{Binding SpeedKeeping, Mode=TwoWay}"/>
+                                <TextBlock Text="Testter's Note:"
+                                           FontWeight="Bold"
+                                           Margin="5,0,5,0"/>
+                                <TextBox Text="{Binding TestersNote, Mode=TwoWay}"
+                                         AcceptsReturn="True"
+                                         AcceptsTab="true"
+                                         SpellCheck.IsEnabled="True"
+                                         IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                         MinWidth="200"
+                                         TextWrapping="Wrap"/>
+                                <Button Content="Update Test Results"
+                                        x:Name="updateButton"
+                                        IsEnabled="{Binding ElementName=updateButton, Path=IsEnabled}"
+                                        Tag="{Binding}"
+                                        Click="updateTestButtonClicked"
+                                        Padding="20,3"/>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Done"
+                Click="doneButtonClicked"
+                Padding="20,3"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+    </Grid>
+</Window>

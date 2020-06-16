@@ -1,0 +1,270 @@
+﻿<Window x:Class="PLWPF.UpdateTesterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="Update Tester's Details"
+        FontSize="16"
+        WindowStartupLocation="CenterScreen"
+        Height="800"
+        Width="520">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <TextBlock  
+                   Text="ID Number:" 
+                   Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center"  />
+        <TextBox x:Name="id" 
+                 Text="{Binding ID}"
+                  Margin="0,0,20,0"
+                  IsEnabled="False"
+                 PreviewTextInput="NumberValidationTextBox"
+                 Grid.Column="1"   
+                 MaxLength="8" 
+                 MaxLines="1"/>
+        <TextBlock  
+                   Grid.Row="4" 
+                   Text="First name:" 
+                  Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+            
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="firstName" 
+                 Text="{Binding FirstName, Mode=TwoWay}"
+               Margin="0,0,20,0"
+                 Grid.Column="1"  
+                 Grid.Row="4" Height="24" VerticalAlignment="Top" />
+        <TextBlock  Grid.Row="10" 
+                    
+                    Text="Enter Phone:" 
+                    Margin="20,0,20,0"
+                   HorizontalAlignment="Left"  
+                    VerticalAlignment="Center"  />
+        <TextBlock   Grid.Row="12"
+                     TextWrapping="Wrap"
+                     Text=" Adress:" 
+                    Margin="20,0,0,0"
+                   HorizontalAlignment="Left"  
+                     VerticalAlignment="Top" FontWeight="Bold" />
+        <TextBlock  Grid.Row="16" 
+                    TextWrapping="Wrap" 
+                    Text="Enter Seniority (years):" 
+                    Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"  />
+        <TextBlock   Grid.Row="18" 
+                     TextWrapping="Wrap" 
+                     Text="Enter The Maximum Tests Per Week:" 
+                    Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+                     VerticalAlignment="Center" />
+
+        <TextBlock  
+                   Grid.Row="6" 
+                   TextWrapping="Wrap" 
+                   Text="Enter Date of birth:" 
+                   Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center" />
+        <TextBlock  Grid.Row="8" 
+                    TextWrapping="Wrap" 
+                    Text="Select Gender:" 
+                  Margin="20,0,20,0"
+                   HorizontalAlignment="Left"  
+                    VerticalAlignment="Center" />
+        <TextBlock  Grid.Row="14"
+                    TextWrapping="Wrap"
+                    Text="Select car type " 
+                    Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" />
+        <TextBlock  Grid.Row="20" 
+                    TextWrapping="Wrap" 
+                    Text="Maximum Distance From a Test Address:" 
+                   Margin="20,0,0,0"
+                   HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" />
+        <TextBlock  
+                   Grid.Row="2" 
+                   TextWrapping="Wrap" 
+                   Text="Last name:" 
+                  Margin="20,0,20,0"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center" />
+        <TextBox x:Name="lastName" 
+                  Margin="0,0,20,0"
+                 Text="{Binding LastName, Mode=TwoWay}"
+                 Grid.Column="1" 
+                 Grid.Row="2"  />
+
+
+        <TextBox x:Name="phone" 
+                  Text="{Binding Phone, Mode=TwoWay}"
+                  Margin="0,0,20,0"
+                 PreviewTextInput="NumberValidationTextBox"
+                 Grid.Column="1"  
+                 Grid.Row="10"/>
+        <TextBox x:Name="maxTests" 
+                 Text="{Binding MaxTestsPerWeek, Mode=TwoWay}"
+                 Grid.Column="1"
+                  Margin="0,0,20,0"
+                 Grid.Row="18" />
+        <TextBox x:Name="maxDistance"
+                 Margin="0,0,20,0"
+                 Text="{Binding MaxDistanceFromAddress, Mode=TwoWay}"
+                 Grid.Column="1" 
+                 Grid.Row="20"  />
+        <ComboBox x:Name="genderComboBox" 
+                  SelectedItem="{Binding Gender, Mode=TwoWay}"
+                  Grid.Column="1" 
+                   Margin="0,0,20,0"
+                  Grid.Row="8" />
+        
+        <Grid Grid.Column="1" 
+              x:Name="addressGrid"
+              Grid.Row="12" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="city" 
+                      Margin="0,0,20,0"
+                     Text="{Binding City, Mode=TwoWay}"
+                      />
+            <TextBox x:Name="houseNumber"
+                      Margin="0,0,20,0"
+                     Text="{Binding HouseNumber, Mode=TwoWay}"
+                     Grid.Row="1"
+                        />
+            <TextBox x:Name="street"
+                      Margin="0,0,20,0"
+                     Text="{Binding Street, Mode=TwoWay}"
+                     Grid.Row="2"  
+                      />
+        </Grid>
+        <ComboBox x:Name="carTypeComboBox"
+                  Grid.Column="1"
+                   Margin="0,0,20,0"
+                  Grid.Row="14" 
+                  SelectedItem="{Binding CarType, Mode=TwoWay}"/>
+        <TextBox x:Name="seniority"
+                  Margin="0,0,20,0"
+                  Text="{Binding Seniority, Mode=TwoWay}"
+                  Grid.Column="1"
+                  Grid.Row="16"/>
+        <Button x:Name="updateTrainee" 
+                Content="Update" 
+                Click="UpdateTesterClicked"
+               HorizontalAlignment="Center"
+                FontWeight="Bold"
+                Padding="30,2"
+                Grid.Row="24"
+                Grid.Column="1"
+                VerticalAlignment="Center"/>
+        <Button x:Name="Cencel" 
+                Content="Cencel" 
+                Click="CencelButtonClicked"
+               HorizontalAlignment="Center"
+                FontWeight="Bold"
+                Padding="30,2"
+                Grid.Row="24"
+                VerticalAlignment="Center" />
+        <DatePicker x:Name="dateOfbirth"
+                     Margin="0,0,20,0"
+                    SelectedDate="{Binding DateOfBirth, Mode=TwoWay}"
+                    FontSize="14" 
+                    Grid.Column="1" 
+                    Grid.Row="6" />
+        <Grid HorizontalAlignment="Right"
+              Grid.Row="12"
+              VerticalAlignment="Stretch" 
+              Width="116">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="22*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="City:" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1"  
+                       Text="House Number:" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" />
+            <TextBlock  Grid.Row="2"  
+                        Text="Street:" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" />
+            
+        </Grid>
+        <DataGrid Grid.Row="22" 
+                  FontSize="13"
+                  x:Name="schedule" 
+                  Margin="60,0,60,0" 
+                  Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False"
+                  CanUserSortColumns="False"
+                  CanUserReorderColumns="False" 
+                  
+                  ColumnWidth="*" 
+                  RowHeight="20">
+            <DataGrid.Columns >
+                <DataGridTextColumn IsReadOnly="True" 
+                                    Binding="{Binding Day}"/>
+                <DataGridCheckBoxColumn  x:Name="Nine" 
+                                         Header="9:00" 
+                                         Binding="{Binding Nine, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn x:Name="Ten" 
+                                        Header="10:00" 
+                                        Binding="{Binding Ten, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <DataGridCheckBoxColumn x:Name="eleven" 
+                                        Header="11:00" 
+                                        Binding="{Binding Eleven, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn x:Name="twelve"  
+                                        Header="12:00" 
+                                        Binding="{Binding Twelve, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <DataGridCheckBoxColumn x:Name="thirteen" 
+                                        Header="13:00" 
+                                        Binding="{Binding Thirteen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <DataGridCheckBoxColumn x:Name="fourteen" 
+                                        Header="14:00" 
+                                        Binding="{Binding Fourteen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

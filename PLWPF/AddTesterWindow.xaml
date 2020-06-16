@@ -1,0 +1,264 @@
+﻿<Window x:Class="PLWPF.AddTesterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title=" Add a Tester" 
+        WindowStartupLocation="CenterScreen"
+        FontSize="16"
+        Height="700"
+        Width="500">
+    <Window.Resources>
+        <local:VehicleTypeToUserStringConveter x:Key="toUserStringConveter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <TextBlock  
+                   Text="Enter ID number:" 
+                   Margin="20,6,0,5"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center"  />
+        <TextBox Margin="0,0,20,0"
+                 x:Name="id"
+                 Text="{Binding ID, Mode=OneWayToSource}"
+                  PreviewTextInput="NumberValidationTextBox"
+                 Grid.Column="1"   
+                 MaxLength="8" 
+                 MaxLines="1"/>
+        <TextBlock  
+                   Grid.Row="4" 
+                   Text="First name:" 
+                   Margin="20,6,0,5"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center"/>
+        <TextBox Margin="0,0,20,0"
+                 x:Name="firstName"
+                 Text="{Binding FirstName, Mode=OneWayToSource}"
+                 Grid.Column="1"  
+                 Grid.Row="4" />
+        <TextBlock  Grid.Row="10"  
+                    Text="Phone number:" 
+                    Margin="20,6,0,5"
+                   HorizontalAlignment="Left"  
+                    VerticalAlignment="Center"  />
+        <TextBlock   Grid.Row="12" 
+                     TextWrapping="Wrap"
+                     Text="Enter adress:" 
+                    Margin="20,5,0,35"
+                   HorizontalAlignment="Left"  
+                     VerticalAlignment="Top" FontWeight="Bold" />
+        <TextBlock  Grid.Row="16" 
+                    TextWrapping="Wrap" 
+                    Text="Seniority:" 
+                    Margin="20,6,0,5"
+                   HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"  />
+        <TextBlock   Grid.Row="18" 
+                     TextWrapping="Wrap" 
+                     Text="Max Tests Per Week:" 
+                     Margin="20,6,0,5"
+                   HorizontalAlignment="Left" 
+                     VerticalAlignment="Center" />
+
+        <TextBlock   
+                   Grid.Row="6" 
+                   TextWrapping="Wrap" 
+                   Text="Enter Date of birth:" 
+                   Margin="20,5,0,5"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center" />
+        <TextBlock  Grid.Row="8" 
+                    TextWrapping="Wrap" 
+                    Text="Select gender:" 
+                  Margin="20,6,0,5"
+                   HorizontalAlignment="Left"  
+                    VerticalAlignment="Center" />
+        <TextBlock  Grid.Row="14"
+                    TextWrapping="Wrap"
+                    Text="Select vehicle type:" 
+                    Margin="20,6,0,5"
+                   HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" />
+        <TextBlock  Grid.Row="19" 
+                    TextWrapping="Wrap" 
+                    Text="Max Distance From Address (KM):" 
+                   Margin="20,4,0,4"
+                   HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" Grid.RowSpan="3" />
+        <TextBlock  
+                   Grid.Row="2" 
+                   TextWrapping="Wrap" 
+                   Text="Last name:" 
+                  Margin="20,5,0,5"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center" />
+        <TextBox Margin="0,0,20,0"
+                 x:Name="lastName"
+                 Text="{Binding LastName, Mode=OneWayToSource}"
+                 Grid.Column="1" 
+                 Grid.Row="2"  />
+
+
+        <TextBox Margin="0,0,20,0"
+                 Text="{Binding Phone, Mode=OneWayToSource}"
+                 x:Name="phone" 
+                 Grid.Column="1"  
+                 Grid.Row="10" 
+                 PreviewTextInput="NumberValidationTextBox"/>
+
+
+
+        <TextBox Margin="0,0,20,0"
+                 x:Name="maxTestsPerWeek"
+                 Text="{Binding MaxTestsPerWeek, Mode=OneWayToSource}"
+                 Grid.Column="1"  
+                 Grid.Row="18" 
+                 PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox Margin="0,0,20,0"
+                 x:Name="maxDistanceFromAddress" 
+                 Text="{Binding MaxDistanceFromAddress, Mode=OneWayToSource}"
+                 Grid.Column="1" 
+                 Grid.Row="20" 
+                  />
+        <ComboBox Margin="0,0,20,0"
+                  x:Name="genderComboBox" 
+                  SelectedItem="{Binding Gender, Mode=OneWayToSource}"
+                  Grid.Column="1" 
+                  Grid.Row="8" />
+        <Grid Grid.Column="1"
+              Margin="0,0,20,0"
+              Grid.Row="12" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="city" 
+                     Text="{Binding Address.City, Mode=OneWayToSource}"/>
+            <TextBox x:Name="houseNumber" 
+                     Text="{Binding Address.HouseNumber, Mode=OneWayToSource}"
+                     Grid.Row="1"
+                      PreviewTextInput="NumberValidationTextBox" />
+            <TextBox x:Name="street"
+                     Grid.Row="2"  
+                     Text="{Binding Address.Street, Mode=OneWayToSource}"/>
+        </Grid>
+        <ComboBox Margin="0,0,20,0"
+                  x:Name="carTypeComboBox"
+                  Grid.Column="1"
+                  Grid.Row="14">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource toUserStringConveter}}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button x:Name="SubscribeButton" 
+                Content="Subscribe" 
+                HorizontalAlignment="Center"
+                Grid.Row="24" 
+                VerticalAlignment="Center" 
+                Width="180" 
+                Grid.ColumnSpan="2" 
+                Click="Button_Subscribe"/>
+        <DatePicker Margin="0,0,20,0"
+                    x:Name="dateOfBrith"
+                    Text="{Binding DateOfBirth, Mode=OneWayToSource}"
+                    FontSize="14" 
+                    Grid.Column="1" 
+                    Grid.Row="6" />
+        <TextBox Margin="0,0,20,0"
+                 x:Name="seniority" 
+                 Text="{Binding Seniority, Mode=OneWayToSource}"
+                 PreviewTextInput="NumberValidationTextBox" 
+                 Grid.Column="1" 
+                 Grid.Row="16"   />
+        <DataGrid Grid.Row="22" 
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  CanUserDeleteRows="False"
+                  CanUserAddRows="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeRows="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns="False"
+                  FontSize="12"
+                  x:Name="schedule" 
+                  Margin="60,0,60,0"
+                  Grid.ColumnSpan="2" 
+                  RowHeight="20"
+                  ColumnWidth="*">
+            <DataGrid.RowHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Height="auto" 
+                               Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=Item.Day}"/>
+                </DataTemplate>
+            </DataGrid.RowHeaderTemplate>
+            <DataGrid.Columns >
+                <DataGridCheckBoxColumn  x:Name="Sunday" 
+                                         Header="9:00" 
+                                         Binding="{Binding Nine, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn x:Name="Monday" 
+                                        Header="10:00" 
+                                        Binding="{Binding Ten, Mode=TwoWay}" />
+                <DataGridCheckBoxColumn x:Name="eleven" 
+                                        Header="11:00" 
+                                        Binding="{Binding Eleven, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn x:Name="twelve"  
+                                        Header="12:00" 
+                                        Binding="{Binding Twelve,  Mode=TwoWay}" />
+                <DataGridCheckBoxColumn x:Name="thirteen" 
+                                        Header="13:00" 
+                                        Binding="{Binding Thirteen, Mode=TwoWay}" />
+                <DataGridCheckBoxColumn x:Name="fourteen" 
+                                        Header="14:00" 
+                                        Binding="{Binding Fourteen,  Mode=TwoWay}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid HorizontalAlignment="Left" Height="81" Margin="126,5,0,0" Grid.Row="12" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="26*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="20,0,0,0" Text="city" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+            <TextBlock Margin="20,0,0,0"  Grid.Row="1"  Text="hose number" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+            <TextBlock  Margin="20,0,0,0" Grid.Row="2"  Text="street" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+        </Grid>
+    </Grid>
+</Window>
